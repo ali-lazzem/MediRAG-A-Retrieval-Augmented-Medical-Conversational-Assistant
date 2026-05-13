@@ -72,8 +72,6 @@ MediRAG is a production‑ready medical Q&A system that combines dense (FAISS) a
 └── manage.py
 
 
-text
-
 ## Setup Instructions
 
 ### 1. Clone the repository & create virtual environment
