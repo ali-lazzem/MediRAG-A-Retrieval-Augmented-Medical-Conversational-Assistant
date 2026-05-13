@@ -1,0 +1,385 @@
+<!-- FILE: templates/registration/register.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Register – MediRAG{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Same split-screen base as login, plus role-card styles */
+  :root {
+    --register-gradient-start: #0f172a;
+    --register-gradient-end: #1e293b;
+  }
+  body.dark-mode {
+    --register-gradient-start: #0b1120;
+    --register-gradient-end: #111827;
+  }
+  .register-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    position: relative;
+    overflow: hidden;
+  }
+  .register-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(44,125,160,0.15) 0%, transparent 60%);
+    animation: pulseGlow 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes pulseGlow {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  .split-layout {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    z-index: 2;
+  }
+  .brand-side {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(44,125,160,0.2), rgba(30,87,117,0.1));
+    backdrop-filter: blur(8px);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: var(--text-primary);
+    border-right: 1px solid var(--border-light);
+  }
+  .brand-logo {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .brand-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #2c7da0, #8bccf0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  .brand-tagline {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+  .brand-feature {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  .brand-feature i {
+    color: var(--text-link);
+    font-size: 1.2rem;
+  }
+  .form-side {
+    flex: 1;
+    padding: 3rem;
+    background: var(--bg-surface);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .form-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .form-header p {
+    color: var(--text-muted);
+  }
+  .form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .input-icon {
+    position: relative;
+  }
+  .input-icon i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color 0.2s;
+  }
+  .input-icon input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.8rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border-light);
+    border-radius: 1rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.2s;
+  }
+  .input-icon input:focus {
+    outline: none;
+    border-color: var(--border-focus);
+    box-shadow: var(--shadow-glow);
+  }
+  .input-icon input:focus + i {
+    color: var(--text-link);
+  }
+  /* Role selection cards */
+  .role-group {
+    margin-bottom: 1.5rem;
+  }
+  .role-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+  .role-cards {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  .role-card {
+    flex: 1;
+    background: var(--bg-surface-solid);
+    border: 2px solid var(--border-light);
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+  }
+  .role-card i {
+    font-size: 1.8rem;
+    transition: transform 0.2s;
+  }
+  .role-card span {
+    font-weight: 500;
+  }
+  .role-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-focus);
+    background: rgba(44,125,160,0.05);
+  }
+  .role-card.selected {
+    border-color: var(--border-focus);
+    background: rgba(44,125,160,0.1);
+    box-shadow: var(--shadow-glow);
+    transform: scale(1.02);
+    color: var(--text-link);
+  }
+  .role-radio-group {
+    display: none;
+  }
+  .helptext {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+    display: block;
+  }
+  .errorlist {
+    color: #e11d48;
+    font-size: 0.8rem;
+    list-style: none;
+    margin-top: 0.3rem;
+    padding-left: 0;
+  }
+  .btn-register {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #2c7da0, #1e5775);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+  }
+  .btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    filter: brightness(1.02);
+  }
+  .switch-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+  }
+  .switch-link a {
+    color: var(--text-link);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  @media (max-width: 768px) {
+    .split-layout {
+      flex-direction: column;
+      margin: 1rem;
+    }
+    .brand-side {
+      padding: 2rem;
+      text-align: center;
+      align-items: center;
+      border-right: none;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .form-side {
+      padding: 2rem;
+    }
+    .role-cards {
+      flex-direction: column;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="register-container">
+  <div class="split-layout">
+    <div class="brand-side">
+      <div class="brand-logo"><i class="fas fa-stethoscope"></i></div>
+      <div class="brand-title">MediRAG</div>
+      <div class="brand-tagline">Start your AI-powered medical journey</div>
+      <div class="brand-feature"><i class="fas fa-database"></i> <span>13k+ clinical QA pairs</span></div>
+      <div class="brand-feature"><i class="fas fa-robot"></i> <span>Llama 3.2 + FAISS</span></div>
+      <div class="brand-feature"><i class="fas fa-lock"></i> <span>100% private & offline</span></div>
+    </div>
+    <div class="form-side">
+      <div class="form-header">
+        <h2>Create account</h2>
+        <p>Join MediRAG – free and secure</p>
+      </div>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <!-- Username -->
+        <div class="form-group">
+          <div class="input-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username" placeholder="Username" value="{{ form.username.value|default:'' }}" required>
+          </div>
+          {% if form.username.errors %}<ul class="errorlist"><li>{{ form.username.errors.0 }}</li></ul>{% endif %}
+          <div class="helptext">{{ form.username.help_text }}</div>
+        </div>
+        <!-- Email -->
+        <div class="form-group">
+          <div class="input-icon">
+            <i class="fas fa-envelope"></i>
+            <input type="email" name="email" placeholder="Email address" value="{{ form.email.value|default:'' }}" required>
+          </div>
+          {% if form.email.errors %}<ul class="errorlist"><li>{{ form.email.errors.0 }}</li></ul>{% endif %}
+        </div>
+        <!-- Password1 -->
+        <div class="form-group">
+          <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password1" placeholder="Password" required>
+          </div>
+          {% if form.password1.errors %}<ul class="errorlist"><li>{{ form.password1.errors.0 }}</li></ul>{% endif %}
+        </div>
+        <!-- Password2 -->
+        <div class="form-group">
+          <div class="input-icon">
+            <i class="fas fa-check-circle"></i>
+            <input type="password" name="password2" placeholder="Confirm password" required>
+          </div>
+          {% if form.password2.errors %}<ul class="errorlist"><li>{{ form.password2.errors.0 }}</li></ul>{% endif %}
+        </div>
+        <!-- Role selection with custom cards -->
+        <div class="role-group">
+          <label>I am a</label>
+          <div class="role-radio-group" id="role-radio-group">
+            {% for radio in form.role %}
+              {{ radio.tag }}
+            {% endfor %}
+          </div>
+          <div class="role-cards">
+            <div class="role-card" data-role-value="student">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Student</span>
+            </div>
+            <div class="role-card" data-role-value="doctor">
+              <i class="fas fa-user-md"></i>
+              <span>Doctor</span>
+            </div>
+            <div class="role-card" data-role-value="other">
+              <i class="fas fa-user-friends"></i>
+              <span>Other</span>
+            </div>
+          </div>
+          {% if form.role.errors %}<ul class="errorlist"><li>{{ form.role.errors.0 }}</li></ul>{% endif %}
+        </div>
+        <button type="submit" class="btn-register">Sign up →</button>
+      </form>
+      <div class="switch-link">
+        Already have an account? <a href="{% url 'login' %}">Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // Custom role card selection logic
+    const cards = document.querySelectorAll('.role-card');
+    const radios = document.querySelectorAll('input[name="role"]');
+    function updateSelected(value) {
+      cards.forEach(card => {
+        const cardValue = card.getAttribute('data-role-value');
+        if (cardValue === value) {
+          card.classList.add('selected');
+        } else {
+          card.classList.remove('selected');
+        }
+      });
+      radios.forEach(radio => {
+        if (radio.value === value) {
+          radio.checked = true;
+        }
+      });
+    }
+    const initialChecked = document.querySelector('input[name="role"]:checked');
+    if (initialChecked) {
+      updateSelected(initialChecked.value);
+    } else {
+      updateSelected('student');
+    }
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const value = card.getAttribute('data-role-value');
+        updateSelected(value);
+      });
+    });
+  })();
+</script>
+{% endblock %}

@@ -1,0 +1,9 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[retriever] Using device: cpu
+[retriever] Loading embedding model...
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|##########| 391/391 [00:00<00:00, 19915.15it/s]
+forrtl: error (200): program aborting due to window-CLOSE event
+Image              PC                Routine            Line        Source             
+KERNELBASE.dll     00007FFCF21C9DED  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FFCF47EE8D7  Unknown               Unknown  Unknown
+ntdll.dll          00007FFCF58AC48C  Unknown               Unknown  Unknown

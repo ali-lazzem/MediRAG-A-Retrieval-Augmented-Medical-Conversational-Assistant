@@ -1,0 +1,49 @@
+<!-- FILE: templates/home.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}MediRAG – Intelligent Medical AI{% endblock %}
+
+{% block content %}
+<div class="landing">
+    <div class="hero">
+        <h1>MediRAG – Medical AI<br>with Intelligence & Speed</h1>
+        <p>Retrieval-Augmented Generation powered by MedQuAD + FAISS + Ollama. Private, accurate, modern.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'login' %}" class="btn-secondary">Login</a>
+            <a href="{% url 'register' %}" class="btn-primary">Register</a>
+            <a href="{% url 'chat' %}" class="btn-primary">Start Chat</a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <i class="fas fa-chart-line feature-icon" style="font-size: 2rem; color: var(--text-link);"></i>
+            <h3>93% semantic similarity</h3>
+            <p>Proven accuracy across 17 medical categories</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-database feature-icon" style="font-size: 2rem;"></i>
+            <h3>13k+ clinical QA pairs</h3>
+            <p>FAISS vector search & local LLM</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-shield-alt feature-icon" style="font-size: 2rem;"></i>
+            <h3>100% private & offline</h3>
+            <p>No external API calls – your data stays local</p>
+        </div>
+    </div>
+
+    <div class="metrics">
+        <div class="metrics-grid">
+            <div><div class="metric">0.931</div><div>mean similarity</div></div>
+            <div><div class="metric">16412</div><div>vectors in index</div></div>
+            <div><div class="metric">&lt;23.5s</div><div>avg response</div></div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-muted);">
+        <p>MediRAG – Next‑gen medical assistant for PFA project</p>
+    </footer>
+</div>
+{% endblock %}

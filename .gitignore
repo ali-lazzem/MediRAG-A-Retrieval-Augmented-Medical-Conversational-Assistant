@@ -1,0 +1,40 @@
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django
+db.sqlite3
+*.log
+*.pot
+*.pyc
+local_settings.py
+.DS_Store
+sessions.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Project specific – large files (FAISS index can be >100 MB)
+Data/Extracted_Data/
+!Data/Extracted_Data/.gitkeep
+
+# Evaluation outputs
+benchmark_results_rag_only.json
+Data/evaluation/
+
+# Misc
+.coverage
+htmlcov/
+.tox/
+EOF

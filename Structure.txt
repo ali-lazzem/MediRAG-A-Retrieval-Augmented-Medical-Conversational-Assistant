@@ -1,0 +1,92 @@
+### PFA ###/
+│
+├── evaluation vs other models/
+│   ├── benchmark.py                     # Main benchmark runner
+│   ├── benchmark_results.json           # Previous benchmark results (old test set)
+│   ├── config.py                        # Global configuration (paths, models, etc.)
+│   ├── data_loader.py                   # Dataset loading and curated test set
+│   ├── evaluator.py                     # Semantic similarity computation
+│   ├── requirements.txt                 # Python dependencies
+│   │
+│   ├── data/                            # Pre‑built FAISS index & metadata
+│   │   ├── csv_faiss.index
+│   │   └── csv_metadata.json
+│   │
+│   ├── models/                          # Model implementations
+│   │   ├── __init__.py
+│   │   ├── pure_llm.py                  # Pure LLM (Ollama)
+│   │   └── rag_model.py                 # Generic RAG model (retriever + LLM)
+│   │
+│   ├── retrievers/                      # Retrieval backends
+│   │   ├── __init__.py
+│   │   ├── base.py                      # Abstract base class
+│   │   ├── faiss_retriever.py           # Dense FAISS retriever
+│   │   └── bm25_retriever.py            # Sparse BM25 retriever
+│   │
+│   ├── images/                          # (likely empty or contains plots)
+│   │
+│   └── __pycache__/                     # Cached bytecode (ignored)
+│
+└── MED_AI_PFA/                           # Original Django project (MediRAG)
+    ├── backend/                          # Django project settings
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │
+    ├── rag/                             # Main Django app
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── forms.py
+    │   ├── models.py
+    │   ├── views.py
+    │   ├── urls.py
+    │   ├── serializers.py
+    │   ├── tests.py
+    │   ├── retriever.py                 # Original FAISS retriever (with lazy loading)
+    │   ├── llm.py                       # Ollama integration
+    │   ├── memory.py                    # Session manager (JSON)
+    │   ├── evaluate.py                  # Original evaluation script
+    │   ├── tempCodeRunnerFile.py        # temporary (ignore)
+    │   │
+    │   ├── migrations/
+    │   │   ├── __init__.py
+    │   │   ├── 0001_initial.py
+    │   │   └── 0002_profile.py
+    │   │
+    │   └── __pycache__/
+    │
+    ├── static/                          # Static files (CSS, JS)
+    │   ├── assets/
+    │   ├── css/
+    │   │   └── styles.css
+    │   └── js/
+    │       ├── darkmode.js
+    │       └── script.js
+    │
+    ├── templates/                       # Django HTML templates
+    │   ├── registration/
+    │   │   ├── login.html
+    │   │   └── register.html
+    │   ├── base.html
+    │   ├── home.html
+    │   └── index.html
+    │
+    ├── Data/                            # Original data & extracted FAISS assets
+    │   ├── evaluation/                  # Evaluation outputs (JSON, CSV)
+    │   │   ├── evaluation.json
+    │   │   └── evaluation.csv
+    │   ├── Extracted_Data/              # FAISS index built from MedQuAD
+    │   │   ├── csv_faiss.index
+    │   │   └── csv_metadata.json
+    │   └── csv_extract.py               # Script to build index from CSV
+    │
+    ├── medquad.csv                      # The full MedQuAD dataset
+    ├── db.sqlite3                       # Django SQLite database (users, conversations)
+    ├── manage.py                        # Django management script
+    ├── server_log.txt                   # Runtime log
+    ├── venv/                            # Python virtual environment (ignored)
+    ├── how does the RAG works.txt       # Notes
+    └── start_pfa.bat                    # Windows batch script to run the server

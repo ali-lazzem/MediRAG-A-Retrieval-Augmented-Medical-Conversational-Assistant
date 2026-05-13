@@ -1,0 +1,33 @@
+1/ finding the infos (docs , pdfs, txt....) --> domaine medical
+
+
+2/ Preprocess PDFs (script ili bich yhiz infos lkol mil docs)
+-> extracting text (PyMuPDF)
+
+-> Chunk it (500–800 tokens per chunk /50–100 token overlap)
+
+-> Create embeddings (sentence-transformers (BGE or E5))
+ 
+-> Store them in vector DB (FAISS)
+
+
+3/Building Retrieval System
+->retriever.py (Embed user question -> FAISS index -> get top 5-7 similar chunks -> Return chunks + metadata'JSON')
+
+->llm.py (Taking context + Taking question + Formatting prompt + Calling LLM + Returning answer)
+
+->rag_pipeline.py (relate everything)
+
+
+4/Create Django API Endpoint
+->views.py (Receive question -> Call rag_pipeline -> Return JSON)
+
+
+5/Add Safety Controls (If information is not found, say it is not available.)
+
+
+6/Agent Workflow (not necessary)
+-> if kaywords are written use specific things 
+
+
+7/ evaluation prove my AI is good

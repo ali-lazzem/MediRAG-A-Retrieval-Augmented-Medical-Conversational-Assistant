@@ -1,0 +1,217 @@
+<!-- FILE: templates/index.html (with sequential bounce typing indicator) -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}MediRAG – Chat{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Ensure no global scrolling */
+  html, body {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .header {
+    flex-shrink: 0;
+  }
+  .container {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    min-height: 0;  /* Important for Firefox */
+  }
+  /* Sidebar independent scroll */
+  .sidebar {
+    width: 300px;
+    overflow-y: auto;
+    height: 100%;
+    flex-shrink: 0;
+  }
+  /* Main chat area - flex column to keep input at bottom */
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0; /* Prevent flex overflow */
+  }
+  /* Chat messages scroll independently */
+  .chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  /* Input area stays at bottom – perfectly centered */
+  .input-area {
+    flex-shrink: 0;
+    border-top: 1px solid var(--border-light);
+    background: var(--bg-surface);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem 2rem;
+  }
+  /* Center the disclaimer and input container */
+  .disclaimer {
+    max-width: 900px;
+    margin: 0 auto 1rem auto;
+    background: rgba(44, 125, 160, 0.1);
+    border-left: 4px solid var(--border-focus);
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  /* Input container – perfect centering */
+  .input-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    background: var(--bg-input);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--border-light);
+    border-radius: 48px;
+    padding: 0.4rem 0.4rem 0.4rem 1.5rem;
+    transition: all var(--transition-fast);
+  }
+  .input-container:focus-within {
+    border-color: var(--border-focus);
+    box-shadow: var(--shadow-glow);
+  }
+  #message-input {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    font-family: var(--font-sans);
+    resize: none;
+    text-align: left;
+  }
+  /* Center the placeholder text */
+  #message-input::placeholder {
+    text-align: center;
+    color: var(--text-muted);
+    opacity: 0.8;
+  }
+  /* When focused, align placeholder left to avoid jumping */
+  #message-input:focus::placeholder {
+    text-align: left;
+  }
+  .send-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2c7da0, #1e5775);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+  }
+  .send-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+  }
+  /* Custom scrollbar */
+  .sidebar::-webkit-scrollbar,
+  .chat-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  .sidebar::-webkit-scrollbar-track,
+  .chat-container::-webkit-scrollbar-track {
+    background: var(--border-light);
+    border-radius: 10px;
+  }
+  .sidebar::-webkit-scrollbar-thumb,
+  .chat-container::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 10px;
+  }
+  .sidebar::-webkit-scrollbar-thumb:hover,
+  .chat-container::-webkit-scrollbar-thumb:hover {
+    background: var(--text-link);
+  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      transform: translateX(-100%);
+      z-index: 30;
+      transition: transform 0.3s;
+      width: 280px;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    .main {
+      width: 100%;
+    }
+    .input-area {
+      padding: 1rem;
+    }
+    .disclaimer,
+    .input-container {
+      max-width: 100%;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <aside class="sidebar" id="sidebar">
+        <button id="sidebar-close" class="sidebar-close"><i class="fas fa-times"></i></button>
+        <button id="new-chat-btn" class="new-chat-btn"><i class="fas fa-plus-circle"></i> New consultation</button>
+        <div class="section">
+            <h3><i class="fas fa-history"></i> Recent chats</h3>
+            <ul id="chat-list" class="chat-list"></ul>
+        </div>
+        <div class="sidebar-footer">
+            <p><i class="fas fa-microchip"></i> Powered by FAISS + Llama 3.2</p>
+        </div>
+    </aside>
+
+    <button id="sidebar-toggle" class="sidebar-toggle" style="display: none;"><i class="fas fa-bars"></i></button>
+
+    <main class="main">
+        <div id="chat-container" class="chat-container">
+            <div id="welcome-message" class="welcome-message">
+                <div class="welcome-icon"><i class="fas fa-robot" style="font-size: 3rem; color: var(--text-link);"></i></div>
+                <h2>MediRAG ready</h2>
+                <p>Ask any medical question – symptoms, treatments, or protocols.</p>
+                <button id="start-chat-btn" class="btn-primary" style="margin-top: 1rem;">Start conversation</button>
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="disclaimer"><i class="fas fa-shield-alt"></i> Informational only – not a substitute for professional advice.</div>
+            <div class="input-container">
+                <textarea id="message-input" rows="1" placeholder="Ask a medical question... (e.g., 'Diabetes symptoms')"></textarea>
+                <button id="send-btn" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            <!-- Sequential bounce typing indicator: one dot moves up and down at a time -->
+            <div id="typing-indicator" class="typing-indicator" style="display: none;">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

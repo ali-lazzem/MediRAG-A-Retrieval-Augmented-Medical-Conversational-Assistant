@@ -1,0 +1,243 @@
+<!-- FILE: templates/registration/login.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login – MediRAG{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Split screen layout with glassmorphism */
+  :root {
+    --login-gradient-start: #0f172a;
+    --login-gradient-end: #1e293b;
+  }
+  body.dark-mode {
+    --login-gradient-start: #0b1120;
+    --login-gradient-end: #111827;
+  }
+  .login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    position: relative;
+    overflow: hidden;
+  }
+  /* Animated gradient background */
+  .login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(44,125,160,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139,204,240,0.1) 0%, transparent 50%);
+    animation: pulseGlow 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes pulseGlow {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  .split-layout {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    z-index: 2;
+  }
+  .brand-side {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(44,125,160,0.2), rgba(30,87,117,0.1));
+    backdrop-filter: blur(8px);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: var(--text-primary);
+    border-right: 1px solid var(--border-light);
+  }
+  .brand-logo {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .brand-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #2c7da0, #8bccf0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  .brand-tagline {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+  .brand-feature {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  .brand-feature i {
+    color: var(--text-link);
+    font-size: 1.2rem;
+  }
+  .form-side {
+    flex: 1;
+    padding: 3rem;
+    background: var(--bg-surface);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .form-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .form-header p {
+    color: var(--text-muted);
+  }
+  .form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .input-icon {
+    position: relative;
+  }
+  .input-icon i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color 0.2s;
+  }
+  .input-icon input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.8rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border-light);
+    border-radius: 1rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.2s;
+  }
+  .input-icon input:focus {
+    outline: none;
+    border-color: var(--border-focus);
+    box-shadow: var(--shadow-glow);
+  }
+  .input-icon input:focus + i {
+    color: var(--text-link);
+  }
+  .btn-login {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #2c7da0, #1e5775);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+  }
+  .btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    filter: brightness(1.02);
+  }
+  .switch-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+  }
+  .switch-link a {
+    color: var(--text-link);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  .switch-link a:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .split-layout {
+      flex-direction: column;
+      margin: 1rem;
+    }
+    .brand-side {
+      padding: 2rem;
+      text-align: center;
+      align-items: center;
+      border-right: none;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .form-side {
+      padding: 2rem;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+  <div class="split-layout">
+    <div class="brand-side">
+      <div class="brand-logo"><i class="fas fa-stethoscope"></i></div>
+      <div class="brand-title">MediRAG</div>
+      <div class="brand-tagline">Your AI Medical Assistant</div>
+      <div class="brand-feature"><i class="fas fa-brain"></i> <span>LLM-powered clinical answers</span></div>
+      <div class="brand-feature"><i class="fas fa-shield-alt"></i> <span>Private & secure</span></div>
+      <div class="brand-feature"><i class="fas fa-chart-line"></i> <span>93% semantic accuracy</span></div>
+    </div>
+    <div class="form-side">
+      <div class="form-header">
+        <h2>Welcome back</h2>
+        <p>Sign in to continue your consultation</p>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <div class="input-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username" placeholder="Username" required autofocus>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-login">Login →</button>
+      </form>
+      <div class="switch-link">
+        Don’t have an account? <a href="{% url 'register' %}">Register</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

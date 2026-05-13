@@ -1,0 +1,321 @@
+{
+  "global_stats": {
+    "semantic_similarity": {
+      "mean": 0.9308434062533908,
+      "std": 0.03394313792669037,
+      "min": 0.837451159954071,
+      "max": 0.9870999455451965
+    },
+    "retrieval_avg_score": {
+      "mean": 0.8986223949326411,
+      "std": 0.015123770989575914
+    },
+    "top_chunk_score": {
+      "mean": 0.9106679989231957,
+      "std": 0.014395641801788409
+    }
+  },
+  "per_category": [
+    {
+      "category": "Glaucoma",
+      "semantic_sim_mean": 0.9393590092658997,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.9004547595977783,
+      "top_score_mean": 0.9057519435882568,
+      "count": 1
+    },
+    {
+      "category": "High Blood Pressure",
+      "semantic_sim_mean": 0.8676546812057495,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.8868027687072754,
+      "top_score_mean": 0.8964358568191528,
+      "count": 1
+    },
+    {
+      "category": "Osteoarthritis",
+      "semantic_sim_mean": 0.9402243494987488,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.8872010946273804,
+      "top_score_mean": 0.9202450513839722,
+      "count": 1
+    },
+    {
+      "category": "Diabetes",
+      "semantic_sim_mean": 0.9188092947006226,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.9124267935752869,
+      "top_score_mean": 0.9201576113700867,
+      "count": 1
+    },
+    {
+      "category": "Alzheimer's Disease",
+      "semantic_sim_mean": 0.9522397518157959,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.8898767232894897,
+      "top_score_mean": 0.8991745710372925,
+      "count": 1
+    },
+    {
+      "category": "Urinary Tract Infections",
+      "semantic_sim_mean": 0.9225185811519623,
+      "semantic_sim_std": 0.01066330075263977,
+      "retrieval_avg_mean": 0.9097537100315094,
+      "top_score_mean": 0.9130554497241974,
+      "count": 2
+    },
+    {
+      "category": "Hearing Loss",
+      "semantic_sim_mean": 0.9529261589050293,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.891082513332367,
+      "top_score_mean": 0.91640704870224,
+      "count": 1
+    },
+    {
+      "category": "Prostate Cancer",
+      "semantic_sim_mean": 0.9499243497848511,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.8937066078186036,
+      "top_score_mean": 0.9039931297302246,
+      "count": 1
+    },
+    {
+      "category": "Osteoporosis",
+      "semantic_sim_mean": 0.837451159954071,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.892521321773529,
+      "top_score_mean": 0.9100543856620789,
+      "count": 1
+    },
+    {
+      "category": "COPD",
+      "semantic_sim_mean": 0.954142689704895,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.8928149938583374,
+      "top_score_mean": 0.9072576761245728,
+      "count": 1
+    },
+    {
+      "category": "Stroke",
+      "semantic_sim_mean": 0.9317346215248108,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.8757605433464051,
+      "top_score_mean": 0.8969707489013672,
+      "count": 1
+    },
+    {
+      "category": "Age-related Macular Degeneration",
+      "semantic_sim_mean": 0.9691566824913025,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.9281213045120239,
+      "top_score_mean": 0.9414629936218262,
+      "count": 1
+    },
+    {
+      "category": "Peripheral Arterial Disease (P.A.D.)",
+      "semantic_sim_mean": 0.9870999455451965,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.9286919474601746,
+      "top_score_mean": 0.9394059181213379,
+      "count": 1
+    },
+    {
+      "category": "Breast Cancer",
+      "semantic_sim_mean": 0.9331039786338806,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.8890691637992859,
+      "top_score_mean": 0.8945229053497314,
+      "count": 1
+    },
+    {
+      "category": "Dry Mouth",
+      "semantic_sim_mean": 0.9447477459907532,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.8963065981864929,
+      "top_score_mean": 0.9068045616149902,
+      "count": 1
+    },
+    {
+      "category": "Paget's Disease of Bone",
+      "semantic_sim_mean": 0.9054328799247742,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.9149298071861267,
+      "top_score_mean": 0.9229598641395569,
+      "count": 1
+    },
+    {
+      "category": "Anemia",
+      "semantic_sim_mean": 0.92613685131073,
+      "semantic_sim_std": 0.0,
+      "retrieval_avg_mean": 0.8759287476539612,
+      "top_score_mean": 0.8843088150024414,
+      "count": 1
+    }
+  ],
+  "failures": [],
+  "all_results": [
+    {
+      "question": "What is (are) Glaucoma ?",
+      "category": "Glaucoma",
+      "generated": "According to the context provided from multiple sources, including NIHSeniorHealth and MPlusHealthTopics, Glaucoma is:\n\n* A group of diseases that can damage the eye's optic nerve and result in vision loss and blindness.\n* The most common form of glaucoma is open-angle glaucoma.\n* Open-angle glaucoma occurs when the fluid pressure inside the eyes slowly rises, damaging the optic nerve.\n* It usually happens without symptoms at first, but if left untreated, people with glaucoma will slowly lose their peripheral vision and eventually straight-ahead vision until no vision remains.\n* There is no cure for glaucoma, but it can be controlled with treatment, which may include prescription eyedrops and/or surgery.\n\nSource: NIHSeniorHealth, MPlusHealthTopics",
+      "expected": "Glaucoma is a group of diseases that can damage the eye's optic nerve and result in vision loss and blindness. While glaucoma can strike anyone, the risk is much greater for people over 60.",
+      "semantic_similarity": 0.9393590092658997,
+      "retrieval_avg_score": 0.9004547595977783,
+      "top_chunk_score": 0.9057519435882568
+    },
+    {
+      "question": "What causes High Blood Pressure ?",
+      "category": "High Blood Pressure",
+      "generated": "According to the provided context from NIHSeniorHealth and NHLBI, high blood pressure is caused by changes in normal body functions, including:\n\n1. Kidney fluid and salt balances\n2. The renin-angiotensin-aldosterone system\n3. The sympathetic nervous system activity\n4. Blood vessel structure and function\n\nAdditionally, other causes of high blood pressure include:\n\n* Unhealthy lifestyle habits:\n\t+ High sodium intake and sodium sensitivity\n\t+ Drinking too much alcohol\n\t+ Lack of physical activity\n* Being overweight or obese\n* Medicines (such as asthma or hormone therapies) that can change the way your body controls fluid and salt balances, cause blood vessels to constrict, or impact the renin-angiotensin-aldosterone system.\n* Medical conditions such as chronic kidney disease, sleep apnea, thyroid problems, or certain tumors.\n\nIt's worth noting that genetic factors also play a role in high blood pressure, but they only account for 2-3% of all cases.",
+      "expected": "Changes in Body Functions, genetic causes, unhealthy lifestyle habits, overweight and obesity, medicines, and other causes such as chronic kidney disease or sleep apnea.",
+      "semantic_similarity": 0.8676546812057495,
+      "retrieval_avg_score": 0.8868027687072754,
+      "top_chunk_score": 0.8964358568191528
+    },
+    {
+      "question": "What are the symptoms of Osteoarthritis ?",
+      "category": "Osteoarthritis",
+      "generated": "According to the provided context from NIHSeniorHealth, the symptoms of Osteoarthritis include:\n\n1. Joint pain\n2. Swelling or tenderness in one or more joints\n3. Stiffness after getting out of bed or sitting for a long time\n4. A crunching feeling or sound of bone rubbing on bone\n\nAdditionally, it is mentioned that not everyone with osteoarthritis develops symptoms, and only a third of people with x-ray evidence of osteoarthritis report pain or other symptoms.\n\nIt's also worth noting that the symptoms can vary in severity and may include:\n\n* Mild pain and stiffness that comes and goes\n* Severe joint pain\n* Stiffness and swelling in joints such as hands, knees, hips, and feet\n\nPlease consult a medical professional for an accurate diagnosis and treatment plan.",
+      "expected": "Warning signs include joint pain, swelling or tenderness in one or more joints, stiffness after getting out of bed or sitting for a long time, and a crunching feeling or sound of bone rubbing on bone.",
+      "semantic_similarity": 0.9402243494987488,
+      "retrieval_avg_score": 0.8872010946273804,
+      "top_chunk_score": 0.9202450513839722
+    },
+    {
+      "question": "How to prevent Diabetes ?",
+      "category": "Diabetes",
+      "generated": "I can't provide a direct answer to your question as it is not clear what specific action or steps you are looking for in order to prevent diabetes. However, based on the provided context from the NIDDK, here are some general steps that may help:\n\nAccording to the NIDDK, preventing diabetes involves several key steps:\n\n1. Maintaining a healthy weight\n2. Eating a balanced diet\n3. Engaging in regular physical activity\n4. Managing stress\n5. Getting enough sleep\n\nAdditionally, the NIDKK suggests that certain lifestyle changes can reduce the risk of developing type 2 diabetes, such as:\n\n* Not smoking\n* Limiting sedentary activities\n* Increasing physical activity\n* Eating a healthy diet\n* Maintaining a healthy weight\n\nIt's also important to note that some people may be at higher risk for developing type 2 diabetes due to factors such as family history, age, and ethnicity. In these cases, working closely with a healthcare provider to develop a personalized prevention plan may be beneficial.\n\nIf you have any specific questions or concerns about preventing diabetes, I would recommend speaking with a qualified healthcare professional for personalized guidance.",
+      "expected": "Currently, there is no way to delay or prevent type 1 diabetes. However, research has shown that type 2 diabetes can be prevented or delayed in people at risk by losing a modest amount of weight (5-7% of body weight) and getting 150 minutes of physical activity a week.",
+      "semantic_similarity": 0.9188092947006226,
+      "retrieval_avg_score": 0.9124267935752869,
+      "top_chunk_score": 0.9201576113700867
+    },
+    {
+      "question": "What are the treatments for Alzheimer's Disease ?",
+      "category": "Alzheimer's Disease",
+      "generated": "According to the provided context, specifically Chunk 4 from NIHSeniorHealth, there are four medications used to treat symptoms of Alzheimer's disease:\n\n1. Donepezil (Aricept) - approved for all stages of Alzheimer's\n2. Rivastigmine (Exelon) - approved for mild to moderate Alzheimer's\n3. Galantamine (Razadyne) - approved for mild to moderate Alzheimer's\n4. Memantine (Namenda) - approved for moderate to severe Alzheimer's\n\nThese medications can help maintain thinking, memory, and speaking skills for a limited time by regulating certain chemicals in the brain. However, they may have side effects, such as nausea, vomiting, diarrhea, and loss of appetite.\n\nAdditionally, these medications can also be used to treat behavioral symptoms of Alzheimer's disease, such as sleeplessness, agitation, wandering, anxiety, anger, and depression.\n\nIt is essential to note that there is currently no known cure for Alzheimer's disease, but these medications can help manage its symptoms.",
+      "expected": "Currently, no treatment can stop Alzheimer's disease. However, four medications (donepezil, rivastigmine, galantamine, memantine) are used to treat its symptoms. These medicines may help maintain thinking, memory, and speaking skills for a limited time.",
+      "semantic_similarity": 0.9522397518157959,
+      "retrieval_avg_score": 0.8898767232894897,
+      "top_chunk_score": 0.8991745710372925
+    },
+    {
+      "question": "What is (are) Urinary Tract Infections ?",
+      "category": "Urinary Tract Infections",
+      "generated": "According to multiple sources, including NIHSeniorHealth, NIDDK, MPlusHealthTopics, and NIDDK, urinary tract infections (UTIs) are:\n\n* An infection in the urinary tract\n* Caused by microbesorganisms too small to be seen without a microscope, with bacteria being the most common cause\n* Can occur anywhere in the urinary system, including the kidneys, bladder, and urethra\n* Typically characterized by symptoms such as pain or burning when urinating, fever, tiredness, or shakiness, an urge to urinate often, pressure in the lower belly, urine that smells bad or looks cloudy or reddish, and pain in the back or side below the ribs\n\nNote: The sources also mention different types of UTIs, such as cystitis (bladder infection), pyelonephritis (kidney infection), and urethritis (urethra infection).",
+      "expected": "Urinary tract infections (UTIs) are a common bladder problem, especially as people age. UTIs are the second most common type of infection in the body. UTIs can happen anywhere in the urinary system (kidneys, bladder, and urethra), but are most common in the bladder.",
+      "semantic_similarity": 0.9118552803993225,
+      "retrieval_avg_score": 0.9108006477355957,
+      "top_chunk_score": 0.9147031307220459
+    },
+    {
+      "question": "What causes Hearing Loss ?",
+      "category": "Hearing Loss",
+      "generated": "Hearing loss can result from taking certain medications, specifically \"ototoxic\" medications that damage the inner ear, sometimes permanently. Additionally, loud noise is a common cause of hearing loss, and it can be prevented by avoiding noises at or above 85 decibels in loudness.\n\nSource: NIHSeniorHealth",
+      "expected": "Hearing loss happens for many reasons: aging (presbycusis), ear infections (otitis media), certain medications (ototoxic drugs), heredity, head injury, and long-term exposure to loud noise.",
+      "semantic_similarity": 0.9529261589050293,
+      "retrieval_avg_score": 0.891082513332367,
+      "top_chunk_score": 0.91640704870224
+    },
+    {
+      "question": "What are the treatments for Prostate Cancer ?",
+      "category": "Prostate Cancer",
+      "generated": "According to the provided context, there are several treatments for prostate cancer:\n\n1. Watchful waiting: This involves monitoring the patient's condition with regular check-ups, and may be recommended for older men or those with other serious medical problems.\n2. Surgery: This can involve removing the entire prostate (radical prostatectomy) or part of it, as well as nearby lymph nodes. Side effects may include loss of sexual function or impotence, and/or problems holding urine or incontinence.\n3. Radiation therapy: This uses high-energy x-rays to kill cancer cells and shrink tumors. It can be external radiation (from a machine) or internal radiation (with tiny radioactive seeds placed inside or near the tumor).\n4. Hormonal therapy: This deprives cancer cells of the male hormones they need to grow and survive, often used for prostate cancer that has spread to other parts of the body.\n\nIt's also worth noting that some men may receive a combination of therapies, and that doctors will consider a man's age, general health, and feelings about treatments when developing a treatment plan.",
+      "expected": "Treatment depends on stage, grade, age, and general health. Options include watchful waiting, surgery (radical prostatectomy), radiation therapy (external or internal), and hormonal therapy. Some men receive a combination of therapies.",
+      "semantic_similarity": 0.9499243497848511,
+      "retrieval_avg_score": 0.8937066078186036,
+      "top_chunk_score": 0.9039931297302246
+    },
+    {
+      "question": "How to prevent Osteoporosis ?",
+      "category": "Osteoporosis",
+      "generated": "According to the provided context from the National Institute on Aging (NIA) Senior Health website, preventing falls is a special concern for individuals with osteoporosis. Here are some tips to help eliminate environmental factors that lead to falls:\n\n**Outdoors:**\n\n1. Use a cane or walker for added stability.\n2. Wear rubber-soled shoes for traction.\n3. Walk on grass when sidewalks are slippery.\n4. In winter, carry salt or kitty litter to sprinkle on slippery sidewalks.\n5. Be careful on highly polished floors that become slick and dangerous when wet.\n6. Use plastic or carpet runners when possible.\n\n**Indoors:**\n\n1. Keep rooms free of clutter, especially on floors.\n2. Keep floor surfaces smooth but not slippery.\n3. Wear supportive, low-heeled shoes even at home.\n4. Avoid walking in socks, stockings, or slippers.\n5. Be sure carpets and area rugs have skid-proof backing or are tacked to the floor.\n6. Be sure stairwells are well lit and that stairs have handrails on both sides.\n7. Install grab bars on bathroom walls near tub, shower, and toilet.\n8. Use a rubber bath mat in shower or tub.\n9. Keep a flashlight with fresh batteries beside your bed.\n10. If using a step stool for hard-to-reach areas, use a sturdy one with a handrail and wide steps.\n11. Add ceiling fixtures to rooms lit by lamps.\n12. Consider purchasing a cordless phone so that you don't have to rush to answer the phone when it rings, or so that you can call for help if you do fall.\n\nAdditionally, individuals with osteoporosis should be aware of any physical changes that affect their balance or gait and discuss these changes with their healthcare provider.",
+      "expected": "Prevention includes adequate calcium and vitamin D intake, weight-bearing exercise, avoiding smoking and excessive alcohol, and fall prevention measures (e.g., removing tripping hazards, using grab bars, improving lighting).",
+      "semantic_similarity": 0.837451159954071,
+      "retrieval_avg_score": 0.892521321773529,
+      "top_chunk_score": 0.9100543856620789
+    },
+    {
+      "question": "What is (are) COPD ?",
+      "category": "COPD",
+      "generated": "According to multiple sources, including the National Institutes of Health (NIH), Chronic Obstructive Pulmonary Disease (COPD) is a progressive lung disease characterized by damaged airways that make it harder to breathe. The main cause of COPD is long-term exposure to substances like cigarette smoke, air pollution, chemical fumes, or dust.\n\nSource: MPlusHealthTopics and NIHSeniorHealth",
+      "expected": "Chronic obstructive pulmonary disease (COPD) is a progressive lung disease in which the airways of the lungs become damaged, making it hard to breathe. It includes emphysema and chronic bronchitis.",
+      "semantic_similarity": 0.954142689704895,
+      "retrieval_avg_score": 0.8928149938583374,
+      "top_chunk_score": 0.9072576761245728
+    },
+    {
+      "question": "What are the symptoms of Stroke ?",
+      "category": "Stroke",
+      "generated": "According to the provided context, the symptoms of Stroke include:\n\n1. Sudden numbness or weakness of the face, arm, or leg, especially on one side of the body\n2. Sudden confusion, trouble speaking or understanding speech\n3. Sudden trouble seeing in one or both eyes\n4. Sudden trouble walking, dizziness, loss of balance or coordination\n5. Sudden severe headache with no known cause\n\nAdditionally, other warning signs that may occur include:\n\n1. Double vision\n2. Drowsiness\n3. Nausea or vomiting\n\nIt's essential to note that these symptoms can vary depending on the type and location of the stroke, as well as individual factors.\n\nSources:\n- NIHSeniorHealth (Chunk 1)\n- NHLBI (Chunk 2)\n- NIHSeniorHealth (Chunk 3)\n- NINDS (Chunk 4)\n- NINDS (Chunk 5)",
+      "expected": "Sudden numbness or weakness of the face, arm, or leg (especially on one side), sudden confusion, trouble speaking or understanding, sudden trouble seeing in one or both eyes, sudden trouble walking, dizziness, loss of balance or coordination, and sudden severe headache with no known cause.",
+      "semantic_similarity": 0.9317346215248108,
+      "retrieval_avg_score": 0.8757605433464051,
+      "top_chunk_score": 0.8969707489013672
+    },
+    {
+      "question": "What is (are) Age-related Macular Degeneration ?",
+      "category": "Age-related Macular Degeneration",
+      "generated": "According to the provided context from NIHSeniorHealth and GHR, Age-related Macular Degeneration (AMD) refers to an eye disease that affects the macula, a part of the retina. It causes no pain and blurs the sharp central vision needed for straight-ahead activities such as reading, sewing, and driving.\n\nThere are two forms of AMD:\n\n1. Dry AMD: characterized by a buildup of yellowish deposits called drusen beneath the retina, slowly progressive vision loss, and typically affects vision in both eyes.\n2. Wet AMD: associated with severe vision loss that can worsen rapidly, caused by the growth of abnormal, fragile blood vessels underneath the macula.\n\nSource:\nNIHSeniorHealth\nGHR",
+      "expected": "Age-related macular degeneration (AMD) is an eye disease that affects the macula, causing blurring of sharp central vision needed for activities like reading, sewing, and driving. It causes no pain.",
+      "semantic_similarity": 0.9691566824913025,
+      "retrieval_avg_score": 0.9281213045120239,
+      "top_chunk_score": 0.9414629936218262
+    },
+    {
+      "question": "How to prevent Urinary Tract Infections ?",
+      "category": "Urinary Tract Infections",
+      "generated": "Based on the provided context from both NIDDK and NIHSeniorHealth, here is a comprehensive answer:\n\nTo prevent Urinary Tract Infections (UTIs), follow these steps:\n\n1. **Wipe from front to back**: After using the toilet, especially after bowel movements, wipe from front to back to prevent bacteria from entering the urethra.\n2. **Drink lots of fluids**: Drink at least six to eight 8-ounce glasses of fluid per day, with water being the best choice. This can help flush bacteria from the urinary system.\n3. **Urinate often and when the urge arises**: Try to urinate at least every 3 to 4 hours to prevent bacteria from growing in the bladder.\n4. **Urinate after sex**: Both women and men should urinate shortly after sex to flush away bacteria that may have entered the urethra during sex.\n5. **Wear cotton underwear and loose-fitting clothes**: Wearing looser, cotton clothing will allow air to keep the area around the urethra dry, while tight-fitting jeans and nylon underwear can trap moisture and help bacteria grow.\n6. **Avoid certain fabrics**: Avoid wearing tight-fitting jeans and nylon underwear, as they can increase the risk of UTIs.\n\nAdditionally, consider the following:\n\n* If you have kidney failure or heart disease, consult with your healthcare provider about the recommended amount of fluid intake.\n* Cranberry juice or supplements may help prevent UTIs in some people, but more research is needed to confirm their effectiveness.\n* If you experience frequent UTIs, talk to your healthcare provider about the best treatment options and prevention strategies.\n\nSource: NIDDK and NIHSeniorHealth",
+      "expected": "Prevention tips: wipe from front to back after using the toilet, drink lots of fluids (especially water), urinate often and when the urge arises, urinate after sex, wear cotton underwear and loose-fitting clothes, and consider cranberry juice or supplements.",
+      "semantic_similarity": 0.933181881904602,
+      "retrieval_avg_score": 0.9087067723274231,
+      "top_chunk_score": 0.9114077687263489
+    },
+    {
+      "question": "What is (are) Peripheral Arterial Disease (P.A.D.) ?",
+      "category": "Peripheral Arterial Disease (P.A.D.)",
+      "generated": "Peripheral arterial disease (P.A.D.) is a disease in which plaque builds up in the arteries that carry blood to your head, organs, and limbs. Plaque is made up of fat, cholesterol, calcium, fibrous tissue, and other substances in the blood. P.A.D. currently affects millions of Americans, and about 1 in every 20 Americans over the age of 50 has P.A.D.\n\nSource: NIHSeniorHealth",
+      "expected": "Peripheral arterial disease (P.A.D.) is a disease in which plaque builds up in the arteries that carry blood to your head, organs, and limbs. P.A.D. usually affects the arteries in the legs.",
+      "semantic_similarity": 0.9870999455451965,
+      "retrieval_avg_score": 0.9286919474601746,
+      "top_chunk_score": 0.9394059181213379
+    },
+    {
+      "question": "What are the treatments for Breast Cancer ?",
+      "category": "Breast Cancer",
+      "generated": "According to the National Institute on Aging (NIHSeniorHealth), the standard treatments for breast cancer include:\n\n1. Surgery that takes out the cancer and some surrounding tissue\n2. Radiation therapy that uses high-energy beams to kill cancer cells and shrink tumors and some surrounding tissue\n3. Chemotherapy that uses anti-cancer drugs to kill most cancer cells\n4. Hormone therapy that keeps cancer cells from getting most of the hormones they need to survive and grow\n\nAdditionally, treatment options may vary depending on the stage and spread of the cancer, such as:\n\n* Lumpectomy combined with radiation therapy for early-stage breast cancer\n* Chemotherapy and surgery for locally spread cancer\n* Chemotherapy and/or hormonal therapy for cancer that has spread beyond the breast\n* Adjuvant therapy after surgery to increase the chances of a cure\n\nIt's also worth noting that certain targeted therapies, such as Herceptin and Tykerb, may be used in combination with chemotherapy to treat specific genetic breast cancer mutations.\n\nSource: NIHSeniorHealth (medquad.csv)",
+      "expected": "Treatment options include surgery (lumpectomy, mastectomy), radiation therapy, chemotherapy, hormone therapy, and targeted therapy. The choice depends on cancer stage, age, and overall health.",
+      "semantic_similarity": 0.9331039786338806,
+      "retrieval_avg_score": 0.8890691637992859,
+      "top_chunk_score": 0.8945229053497314
+    },
+    {
+      "question": "What is (are) Dry Mouth ?",
+      "category": "Dry Mouth",
+      "generated": "According to the provided context from the National Institute of Health's Senior Health and MPlus Health Topics, dry mouth is:\n\n* The condition of not having enough saliva or spit in the mouth.\n* The feeling that there is not enough saliva in the mouth.\n* A sticky, dry feeling in the mouth.\n* Trouble chewing, swallowing, tasting, or speaking.\n* A burning feeling in the mouth.\n* A dry feeling in the throat.\n* Cracked lips.\n* A dry, rough tongue.\n* Mouth sores.\n* An infection in the mouth.\n\nIt is not a normal part of aging and can be caused by various factors such as certain medications, radiation therapy, chemotherapy, nerve damage, salivary gland diseases, Sjogren's syndrome, HIV/AIDS, and diabetes.",
+      "expected": "Dry mouth is the feeling that there is not enough saliva in the mouth. Everyone has dry mouth once in a while -- if they are nervous, upset, under stress, or taking certain medications. But if you have dry mouth all or most of the time, see a dentist or physician.",
+      "semantic_similarity": 0.9447477459907532,
+      "retrieval_avg_score": 0.8963065981864929,
+      "top_chunk_score": 0.9068045616149902
+    },
+    {
+      "question": "What causes Paget's Disease of Bone ?",
+      "category": "Paget's Disease of Bone",
+      "generated": "Unfortunately, I don't have enough information to provide a clear answer about what causes Paget's Disease of Bone from the provided context. The sources mention that the cause is unknown, although it may be associated with faulty genes or viral infections early in life (Source: GARD). However, none of the other sources provide a definitive explanation for the cause of Paget's Disease of Bone.\n\nIf you have any additional information or clarification about what you're looking for, I'd be happy to try and help further.",
+      "expected": "Researchers are not sure what causes Paget's disease. Heredity may be a factor in some cases. Research suggests that a close relative of someone with Paget's disease is seven times more likely to develop the disease than someone without an affected relative. However, most people with Paget's disease do not have any relatives with the disease. Researchers think the disease also may be caused by other factors, such as a slow-acting virus.",
+      "semantic_similarity": 0.9054328799247742,
+      "retrieval_avg_score": 0.9149298071861267,
+      "top_chunk_score": 0.9229598641395569
+    },
+    {
+      "question": "What is (are) Anemia ?",
+      "category": "Anemia",
+      "generated": "Unfortunately, I don't have enough information from the provided context to answer this question accurately. The context provides different sources with varying answers, but none of them seem to be a single, unified answer.\n\nHowever, based on the information provided in Chunk 1 and Chunk 5, it appears that Anemia is a condition characterized by a lower than normal number of red blood cells or low levels of hemoglobin in the red blood cells, which prevents the body's cells from getting enough oxygen.",
+      "expected": "Anemia is a condition in which your blood has a lower than normal number of red blood cells. This can cause fatigue, weakness, dizziness, and shortness of breath.",
+      "semantic_similarity": 0.92613685131073,
+      "retrieval_avg_score": 0.8759287476539612,
+      "top_chunk_score": 0.8843088150024414
+    }
+  ]
+}
