@@ -28,27 +28,49 @@ MediRAG is a production‑ready medical Q&A system that combines dense (FAISS) a
 ## Project Structure
 .
 ├── backend/ # Django project settings
+
 │ ├── settings.py
+
 │ ├── urls.py
+
 │ └── ...
+
 ├── rag/ # Main Django app
+
 │ ├── models.py # Conversation, Message, Profile
+
 │ ├── views.py # Chat API, authentication views
+
 │ ├── retriever.py # FAISS + BM25 retrieval
+
 │ ├── llm.py # Ollama prompt builder
+
 │ ├── retriever.py # Lazy‑loaded FAISS index
+
 │ ├── urls.py
+
 │ └── ...
+
 ├── templates/ # HTML templates
+
 ├── static/ # CSS, JS
+
 ├── Data/ # (create this)
+
 │ ├── medquad.csv # MedQuAD dataset
+
 │ └── Extracted_Data/ # FAISS index & metadata
+
 ├── csv_extract.py # Build FAISS index from CSV
+
 ├── benchmark.py # Compare RAG_FAISS vs RAG_BM25
+
 ├── evaluate.py # Detailed evaluation (multiple metrics)
+
 ├── requirements.txt
+
 └── manage.py
+
 
 text
 
