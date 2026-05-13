@@ -79,8 +79,8 @@ text
 ### 1. Clone the repository & create virtual environment
 
 ```bash
-git clone <your-repo-url>
-cd <project-folder>
+git clone https://github.com/ali-lazzem/MediRAG-A-Retrieval-Augmented-Medical-Conversational-Assistant
+cd MediRAG-A-Retrieval-Augmented-Medical-Conversational-Assistant
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
@@ -190,10 +190,3 @@ Sentence‑Transformers – UKPLab
 Ollama – Ollama team
 
 BAAI embedding models – Beijing Academy of Artificial Intelligence
-
-License
-MIT – feel free to use and modify.
-
-text
-
-Save this as `README.md` in your project root. Adjust paths or details as needed (e.g., if your CSV location differs). The file is ready to be copied and pasted.
